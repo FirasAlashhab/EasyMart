@@ -1,0 +1,85 @@
+<form data-bs-theme="dark" #form="ngForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label text-light ms-2">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      id="name"
+      style="outline: none; box-shadow: none"
+      [(ngModel)]="product.name"
+      required
+    />
+    <label class="form-label text-light mt-4 ms-2">Description</label>
+    <textarea
+      type="textarea"
+      class="form-control"
+      name="description"
+      id="description"
+      style="outline: none; box-shadow: none"
+      [(ngModel)]="product.description"
+      required
+    >
+    </textarea>
+
+    <label class="form-label text-light mt-4 ms-2">Product Image</label>
+    <input
+      class="form-control text-light"
+      type="file"
+      name="pictureUrl"
+      (change)="onFileUploadChange($event)"
+    />
+
+    <label class="form-label text-light mt-4 ms-2">Price</label>
+    <input
+      type="number"
+      class="form-control"
+      name="price"
+      id="price"
+      style="outline: none; box-shadow: none"
+      [(ngModel)]="product.price"
+      required
+    />
+    <label class="form-label text-light mt-4 ms-2">Product Brand</label>
+    <select
+      name="productBrand"
+      id="productBrand"
+      class="form-control"
+      [(ngModel)]="product.productBrandId"
+      required
+    >
+      <option *ngFor="let brand of productBrands" [value]="brand.id">
+        {{ brand.name }}
+      </option>
+    </select>
+    <label class="form-label text-light mt-4 ms-2">Product Types</label>
+    <select
+      name="productType"
+      id="productType"
+      class="form-control"
+      [(ngModel)]="product.productTypeId"
+      required
+    >
+      <option *ngFor="let type of productTypes" [value]="type.id">
+        {{ type.name }}
+      </option>
+    </select>
+    <div class="mb-3 form-check mt-3">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="inStock"
+        name="inStock"
+        [(ngModel)]="product.inStock"
+      />
+      <label class="form-check-label text-light">In Stock</label>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-dark d-flex ms-auto me-1"
+    [disabled]="!form.valid"
+  >
+    Create
+  </button>
+</form>

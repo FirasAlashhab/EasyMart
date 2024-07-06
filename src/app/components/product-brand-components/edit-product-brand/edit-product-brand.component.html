@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="overlay" *ngIf="this.loading"></div>
+  <div
+    *ngIf="this.loading"
+    role="status"
+    class="spinner-border text-light loading"
+  >
+    <span class="sr-only">Loading...</span>
+  </div>
+  <h1 class="my-3 text-light">Product Brand List</h1>
+
+  <table
+    class="table table-bordered mt-4"
+    data-bs-theme="dark"
+    style="background-color: #212529"
+  >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of productBrands">
+        <td>{{ brand.id }}</td>
+        <td>{{ brand.name }}</td>
+        <td>
+          <a
+            class="btn btn-dark"
+            [routerLink]="[
+              '/admin/product-brands/product-brand-edit/',
+              brand.slug
+            ]"
+            >Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

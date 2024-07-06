@@ -1,0 +1,22 @@
+button.nav-link {
+  background-color: rgba(33, 37, 41, 1);
+  color: rgb(199, 199, 199);
+  font-weight: 500 !important;
+  border-radius: 0;
+  border: none;
+}
+button.nav-link:focus {
+  outline: none;
+}
+button.nav-link:hover {
+  color: rgb(255, 255, 255);
+}
+.nav-pills .nav-link.active {
+  background-color: #111111;
+}
+button.nav-link:active {
+  outline: none;
+}
+button.nav-link:active:focus {
+  outline: none;
+}

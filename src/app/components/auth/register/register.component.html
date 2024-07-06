@@ -1,0 +1,187 @@
+<div class="wrapper">
+  <div class="container main" data-bs-theme="dark">
+    <div class="overlay" *ngIf="this.loading"></div>
+    <div
+      *ngIf="this.loading"
+      role="status"
+      class="spinner-border text-light loading"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="row">
+      <div class="col-md-6 side-image">
+        <div class="logo"></div>
+        <div class="text">
+          <p>Welcome to your best <strong>shopping</strong> place!</p>
+        </div>
+      </div>
+      <div class="col-md-6 right">
+        <a
+          [ngStyle]="{ display: next ? 'block' : 'none' }"
+          (click)="onBack()"
+          style="position: absolute; top: 25px; left: 25px; cursor: pointer"
+        >
+          <i
+            class="fa fa-arrow-left fa-2x me-2 text-light"
+            style="font-size: 18px"
+          ></i>
+        </a>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <div
+            class="input-box"
+            [ngStyle]="{ display: next ? 'none' : 'block' }"
+          >
+            <header>Register Now!</header>
+            <div class="input-field">
+              <input
+                type="email"
+                formControlName="email"
+                class="input"
+                required
+                autocomplete="on"
+              />
+              <label>Email</label>
+              <div
+                *ngIf="
+                  registrationForm.controls['email'].invalid &&
+                  registrationForm.controls['email'].touched
+                "
+                class="error"
+                style="color: red; margin-bottom: 10px; margin-top: -18px"
+              >
+                Valid email is required
+              </div>
+            </div>
+            <div class="input-field">
+              <input
+                type="password"
+                formControlName="password"
+                class="input"
+                required
+                minlength="6"
+              />
+              <label>Password</label>
+              <div
+                *ngIf="
+                  registrationForm.controls['password'].invalid &&
+                  registrationForm.controls['password'].touched
+                "
+                class="error"
+                style="color: red; margin-bottom: 13px; margin-top: -18px"
+              >
+                Password is required (min 6 characters)
+              </div>
+            </div>
+            <div class="input-field">
+              <input
+                type="button"
+                name="submit"
+                class="submit"
+                [disabled]="
+                  registrationForm.controls['email'].invalid ||
+                  registrationForm.controls['password'].invalid
+                "
+                value="Continue"
+                (click)="onNext()"
+                [disabled]="true"
+              />
+            </div>
+            <div class="singup">
+              <span
+                >Already have an account?
+                <a routerLink="/auth/login">Login here</a></span
+              >
+            </div>
+          </div>
+          <div
+            class="input-box"
+            [ngStyle]="{ display: next ? 'block' : 'none' }"
+          >
+            <header>Almost there!</header>
+            <div class="d-flex">
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="firstName"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>First name</label>
+              </div>
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="lastName"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>Last name</label>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="city"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>City</label>
+              </div>
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="state"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>State</label>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="street"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>Street</label>
+              </div>
+              <div class="input-field">
+                <input
+                  type="text"
+                  formControlName="zipCode"
+                  class="input"
+                  required
+                  autocomplete="on"
+                />
+                <label>Zip Code</label>
+              </div>
+            </div>
+            <div class="input-field">
+              <input
+                type="submit"
+                name="submit"
+                class="submit"
+                value="Sign Up"
+                [disabled]="registrationForm.invalid"
+              />
+            </div>
+            <div class="singup">
+              <span
+                >Already have an account?
+                <a routerLink="/auth/login">Login here</a></span
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

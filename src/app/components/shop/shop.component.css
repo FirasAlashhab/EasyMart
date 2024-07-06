@@ -1,0 +1,45 @@
+.active {
+  background-color: rgb(29, 29, 29) !important;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  background: rgb(50, 50, 50);
+}
+
+.pagination ::ng-deep .ngx-pagination a:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+.pagination ::ng-deep .ngx-pagination .pagination-previous.disabled:before,
+.pagination ::ng-deep .ngx-pagination .pagination-previous a:before,
+.pagination ::ng-deep .ngx-pagination .pagination-next.disabled:after,
+.pagination ::ng-deep .ngx-pagination .pagination-next a:after {
+  display: none;
+}
+
+.sticky-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 8%;
+  z-index: 1000;
+}
+
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999999999999999999999999999999999;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  z-index: 9999999999999999999999999999999999999999;
+}

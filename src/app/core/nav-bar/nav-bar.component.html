@@ -1,0 +1,159 @@
+<nav
+  class="navbar navbar-expand-lg shadow-sm fixed-top"
+  style="
+    background-color: rgb(10, 10, 10);
+    border-bottom: 1px solid rgb(50, 50, 50);
+    z-index: 5000;
+  "
+  data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" style="color: rgb(230, 230, 230)">
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="'shop'"
+            routerLinkActive="active"
+            >Shop</a
+          >
+        </li>
+
+        <div *ngIf="currentUser$ | async as currentUser">
+          <ng-container
+            *ngIf="currentUser !== null && currentUser.roles.includes('Writer')"
+          >
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                routerLinkActive="active"
+              >
+                Admin
+              </a>
+              <ul class="dropdown-menu" data-bs-theme="dark">
+                <li>
+                  <a class="dropdown-item" [routerLink]="'/admin/add-product'"
+                    >Add new Product</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="'/admin/add-product-brand'"
+                    >Add Product Brand</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="'admin/add-product-type'"
+                    >Add Product Type</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="['admin/product-brands']"
+                    >Edit/Delete Product Brand</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="['admin/product-types']"
+                    >Edit/Delete Product Type</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ng-container>
+        </div>
+      </ul>
+      <div class="d-flex align-items-center">
+        <a class="position-relative" routerLink="/basket">
+          <i class="fa fa-shopping-cart fa-2x me-2 text-light"></i>
+          <div *ngIf="(basket$ | async)?.items?.length !== 0">
+            <div *ngIf="basket$ | async as basket" class="cart-no">
+              {{ basket.items.length }}
+            </div>
+          </div>
+        </a>
+        <ng-container *ngIf="(currentUser$ | async) === null">
+          <a class="ms-3 btn btn-outline-light" routerLink="auth/login"
+            >Login</a
+          >
+          <a class="ms-3 btn btn-outline-light" routerLink="auth/register"
+            >Sign up</a
+          >
+        </ng-container>
+
+        <ng-container *ngIf="currentUser$ | async">
+          <div class="dropdown ms-3 me-5" dropdown>
+            <a
+              class="dropdown-toggle"
+              style="cursor: pointer; text-decoration: none; color: white"
+              dropdownToggle
+              ><strong
+                >Welcome {{ (currentUser$ | async)?.displayName }}</strong
+              ></a
+            >
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              style="cursor: pointer"
+              *dropdownMenu
+            >
+              <a
+                routerLink="/basket"
+                class="dropdown-item d-flex align-items-center py-2"
+              >
+                <i class="fa fa-shopping-cart me-3"></i> View Basket
+              </a>
+              <a
+                routerLink="/orders"
+                class="dropdown-item d-flex align-items-center py-2"
+              >
+                <i class="fa fa-history me-3"></i> View Orders
+              </a>
+              <div class="dropdown-divider"></div>
+              <a
+                (click)="logout()"
+                class="dropdown-item d-flex align-items-center py-2"
+              >
+                <i class="fa fa-sign-out me-3"></i> Logout
+              </a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</nav>

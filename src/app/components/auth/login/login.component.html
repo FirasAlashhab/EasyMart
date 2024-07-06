@@ -1,0 +1,97 @@
+<div class="wrapper">
+  <div class="container main" data-bs-theme="dark">
+    <div class="overlay" *ngIf="this.loading"></div>
+    <div
+      *ngIf="this.loading"
+      role="status"
+      class="spinner-border text-light loading"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="row">
+      <div class="col-md-6 side-image">
+        <div class="logo"></div>
+        <div class="text">
+          <p>Welcome back to your best <strong>shopping </strong>place!</p>
+          <br />
+          <h5>Available users:</h5>
+          <br />
+          <br />
+          <strong>Admin user:</strong>
+          <p>{{ adminEmail }}</p>
+          <p>{{ adminPass }}</p>
+          <br />
+          <strong>Normal user:</strong>
+          <p>{{ userEmail }}</p>
+          <p>{{ userPassword }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 right">
+        <div class="input-box">
+          <header>Login Now!</header>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-field">
+              <input
+                type="email"
+                name="email"
+                class="input"
+                required
+                autocomplete="on"
+                formControlName="email"
+              />
+              <label>Email</label>
+              <div
+                *ngIf="
+                  loginForm.controls['email'].invalid &&
+                  loginForm.controls['email'].touched
+                "
+                class="error"
+                style="color: red; margin-bottom: 10px; margin-top: -18px"
+              >
+                Valid email is required
+              </div>
+            </div>
+            <div class="input-field">
+              <input
+                type="password"
+                name="password"
+                class="input"
+                required
+                formControlName="password"
+              />
+              <label>Password</label>
+              <div
+                *ngIf="
+                  loginForm.controls['password'].invalid &&
+                  loginForm.controls['password'].touched
+                "
+                class="error"
+                style="color: red; margin-bottom: 13px; margin-top: -18px"
+              >
+                Password is required (min 6 characters)
+              </div>
+            </div>
+            <div class="input-field">
+              <p style="color: red; text-align: center" *ngIf="error">
+                Email or Password is invalid
+              </p>
+              <input
+                type="submit"
+                name="submit"
+                class="submit"
+                value="Sign In"
+                [disabled]="loginForm.invalid"
+              />
+            </div>
+          </form>
+          <div class="singup">
+            <span
+              >Don't have an account?
+              <a routerLink="/auth/register">Register here</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

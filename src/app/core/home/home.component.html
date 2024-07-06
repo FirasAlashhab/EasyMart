@@ -1,0 +1,95 @@
+<div style="display: flex; flex-direction: column; margin-top: 150px">
+  <div class="d-flex justify-content-center mb-5">
+    <h2>Welcome to <strong>EasyMart</strong> your best shopping website!</h2>
+  </div>
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-bg d-block w-100 bg-slide1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Everything you need for your <strong>Setup</strong></h5>
+            <p>
+              <strong>Explore</strong> the newest and trendy accessories for
+              your Dream Setup
+            </p>
+            <a
+              [routerLink]="['/shop']"
+              routerLinkActive="router-link-active"
+              class="btn btn-dark"
+              >Shop Now</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-bg d-block w-100 bg-slide2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Upgrade Your Experience with <strong>Razer</strong></h5>
+            <p>
+              Discover the latest in <strong>Razer</strong> technology for your
+              gaming setup. <strong>Enhance</strong> your performance with
+              high-quality accessories.
+            </p>
+            <a [routerLink]="['/shop']" class="btn btn-dark">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-bg d-block w-100 bg-slide3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Discover Innovation with <strong>Logitech</strong></h5>
+            <p>
+              Discover the latest in <strong>Logitech</strong> technology.
+              Elevate your setup with keyboards, mice, and more.
+            </p>
+            <a [routerLink]="['/shop']" class="btn btn-dark">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+img {
+  width: 626px;
+  height: 550px;
+  border-radius: 20px;
+  filter: blur(3px);
+}
+/* Carousel */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.carousel-caption h5 {
+  color: #fff;
+}
+
+.carousel-caption p {
+  color: #fff;
+}
+
+/* Featured Products */
+.featured-products {
+  padding: 50px 0;
+}
+
+.featured-products h2 {
+  margin-bottom: 30px;
+}
+
+.featured-products .card {
+  margin-bottom: 20px;
+}
+
+.featured-products .card-title {
+  font-weight: bold;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 50px 0;
+}
+
+.testimonials h2 {
+  margin-bottom: 30px;
+}
+
+.testimonial {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Us */
+.about-us {
+  padding: 50px 0;
+}
+
+.about-us h2 {
+  margin-bottom: 30px;
+}
+
+.about-us p {
+  margin-bottom: 20px;
+}
+.carousel-bg {
+  height: 600px; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px; /* Optional: Add border radius for rounded corners */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}
+
+.bg-slide1 {
+  background-image: url("../../../assets/displays-large.jpg");
+}
+
+.bg-slide2 {
+  background-image: url("../../../assets/razer-banner.jpg");
+}
+
+.bg-slide3 {
+  background-image: url("../../../assets/Logitech-G603-Header-01.png");
+}

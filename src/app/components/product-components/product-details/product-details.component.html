@@ -1,0 +1,45 @@
+<div
+  class="row d-flex align-items-center h-100"
+  style="overflow-x: hidden; min-height: 80vh"
+  *ngIf="product"
+>
+  <div
+    class="col-6 fade-in-left"
+    style="
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+    "
+  >
+    <img
+      [src]="product.pictureUrl"
+      [alt]="product.name"
+      class="img-fluid w-100"
+    />
+  </div>
+  <div class="col-6 fade-in-right">
+    <h3>{{ product.name }}</h3>
+    <h5>{{ product.description }}</h5>
+    <p>{{ product.price | currency }}</p>
+    <p *ngIf="product.inStock">InStock</p>
+    <div class="d-flex justify-content-start align-items-center">
+      <i
+        (click)="decrementItemQuantity()"
+        class="fa fa-minus-circle text-light me-2"
+        style="cursor: pointer; font-size: 2em"
+      ></i>
+      <span class="font-weight-bold" style="font-size: 1.5em">{{
+        quantity
+      }}</span>
+      <i
+        (click)="incrementItemQuantity()"
+        class="fa fa-plus-circle text-light mx-2"
+        style="cursor: pointer; font-size: 2em"
+      ></i>
+      <button (click)="addItemToBasket()" class="btn btn-dark btn-lg">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
